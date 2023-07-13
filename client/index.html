@@ -6,11 +6,32 @@
     <title>Document</title>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        main {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        canvas {
+            border: 2px solid black
+        }
+    </style>
 </head>
 <body>
-    <canvas id="ctx" style="">
+    <main>
+        <canvas id="ctx" width="500" height="500">
 
-    </canvas>
+        </canvas>
+    </main>
 
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script>
