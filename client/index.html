@@ -50,6 +50,36 @@
                 ctx.fillText(player.number, player.x, player.y);
             };
         });
+
+        document.onkeydown = (event) => {
+            if (event.keyCode == 68) {
+                socket.emit('KeyPress', {inputId: 'right', state: true})
+            }
+            else if (event.keyCode == 83) {
+                socket.emit('KeyPress', {inputId: 'down', state: true})
+            }
+            else if (event.keyCode == 65) {
+                socket.emit('KeyPress', {inputId: 'left', state: true})
+            }
+            else if (event.keyCode == 87) {
+                socket.emit('KeyPress', {inputId: 'up', state: true})
+            }
+        }
+
+        document.onkeyup = (event) => {
+            if (event.keyCode == 68) {
+                socket.emit('KeyPress', {inputId: 'right', state: false})
+            }
+            else if (event.keyCode == 83) {
+                socket.emit('KeyPress', {inputId: 'down', state: false})
+            }
+            else if (event.keyCode == 65) {
+                socket.emit('KeyPress', {inputId: 'left', state: false})
+            }
+            else if (event.keyCode == 87) {
+                socket.emit('KeyPress', {inputId: 'up', state: false})
+            }
+        }
     </script>
 </body>
 </html>
