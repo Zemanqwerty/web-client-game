@@ -8,19 +8,27 @@
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 </head>
 <body>
-    <p>HELLO WORLD</p>
-    
+    <canvas id="ctx" style="">
+
+    </canvas>
+
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
     <script>
+        var area = document.getElementById('ctx');
+        var ctx = area.getContext('2d');
+        console.log(ctx);
+        ctx.font = '10px Arial';
+
         const socket = io();
 
-        socket.emit('happy', {
-            message: 'test message'
-        });
+        socket.on('newPosition', (data) => {
+            ctx.clearRect(0, 0, 500, 500);
+            for (let i = 0; i < data.length; i++) {
+                let player = data[i];
 
-        socket.on('serverMsg', (data) => {
-            console.log(data.message)
-        })
+                ctx.fillText(player.number, player.x, player.y);
+            };
+        });
     </script>
 </body>
 </html>
